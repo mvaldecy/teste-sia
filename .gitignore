@@ -1,0 +1,57 @@
+# Arquivos Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Ambiente virtual
+.venv/
+venv/
+ENV/
+env/
+
+# Dados sensíveis ou cache
+.env
+.cache/
+.pytest_cache/
+
+# Streamlit
+.streamlit/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Dependências instaladas (flag)
+.dependencies_installed
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Dados de backup (manter apenas os principais)
+data/backup/
