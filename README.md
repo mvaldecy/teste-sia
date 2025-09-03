@@ -4,8 +4,15 @@
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.28+-red.svg)](https://streamlit.io/)
 [![License](https://img.shields.io/badge/License-Educational-green.svg)](https://github.com/mvaldecy/teste-sia)
 [![GitHub](https://img.shields.io/badge/GitHub-teste--sia-black.svg)](https://github.com/mvaldecy/teste-sia)
+[![Deploy](https://img.shields.io/badge/Deploy-Online-brightgreen.svg)](https://mvaldecy-teste-sia-dashboard-otrkvd.streamlit.app/)
 
 Sistema de monitoramento e análise de sentimento de notícias sobre Inteligência Artificial no estado do Piauí, desenvolvido para a Secretaria de Inteligência Artificial.
+
+## 🌐 Demo Online
+
+🔗 **[Acesse o Dashboard Online](https://mvaldecy-teste-sia-dashboard-otrkvd.streamlit.app/)**
+
+> ✨ **Pronto para usar!** O dashboard está disponível online no Streamlit Cloud - sem necessidade de instalação.
 
 ## 📋 Visão Geral
 
@@ -37,7 +44,15 @@ git clone https://github.com/mvaldecy/teste-sia.git && cd teste-sia && ./start.s
 
 ### Instalação e Execução
 
-#### Opção 1: Execução Automática (Recomendada)
+#### Opção 1: Acesso Online (Mais Fácil) 🌐
+
+```
+🔗 https://mvaldecy-teste-sia-dashboard-otrkvd.streamlit.app/
+```
+
+> ✅ **Sem instalação necessária!** Acesse diretamente pelo navegador.
+
+#### Opção 2: Execução Automática Local (Recomendada)
 
 ```bash
 # Clone o repositório
@@ -56,7 +71,7 @@ cd teste-sia
 > - Coleta dados iniciais (opcional)
 > - Inicia o dashboard
 
-#### Opção 2: Instalação Manual
+#### Opção 3: Instalação Manual
 
 1. **Clone e acesse o repositório**
 
@@ -337,6 +352,28 @@ Para fins de transparência, informo que algumas partes deste projeto foram dese
 ### Justificativa:
 
 O uso de IA foi estratégico para acelerar o desenvolvimento de componentes não-críticos, permitindo focar tempo e energia nas decisões arquiteturais importantes e na lógica de negócio específica do projeto.
+
+## 🌐 Deploy e Produção
+
+### Status do Deploy
+
+✅ **Online e Funcionando**  
+🔗 [https://mvaldecy-teste-sia-dashboard-otrkvd.streamlit.app/](https://mvaldecy-teste-sia-dashboard-otrkvd.streamlit.app/)
+
+### Características do Deploy:
+
+- **Plataforma**: Streamlit Cloud
+- **Python**: 3.11 (otimizado para compatibilidade)
+- **Dependencies**: Configuração otimizada sem WordCloud para máxima compatibilidade
+- **Disponibilidade**: 24/7 com auto-restart
+- **Performance**: Cache inteligente e otimizações de carregamento
+
+### Configurações Especiais:
+
+- `runtime.txt`: Especifica Python 3.11 para estabilidade
+- `requirements.txt`: Versão otimizada para cloud (sem dependências problemáticas)
+- `.streamlit/config.toml`: Configurações personalizadas de tema e performance
+- WordCloud opcional: Interface adaptativa que funciona com ou sem a biblioteca
 
 ## 👥 Desenvolvimento
 
