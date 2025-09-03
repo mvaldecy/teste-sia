@@ -53,21 +53,12 @@ def render_main_visualizations(df_filtered, charts):
             st.plotly_chart(pie_chart, use_container_width=True)
 
     with col2:
-        st.subheader("☁️ Nuvem de Palavras")
+        st.subheader("☁️ Palavras Mais Frequentes")
         wordcloud_fig = charts.create_wordcloud(df_filtered)
         if wordcloud_fig:
             st.pyplot(wordcloud_fig)
         else:
-            # Verifica se WordCloud está disponível
-            try:
-                from wordcloud import WordCloud
-
-                st.info("Não há dados suficientes para gerar a nuvem de palavras")
-            except ImportError:
-                st.warning("📦 WordCloud não está disponível nesta instalação")
-                st.info(
-                    "Para ver a nuvem de palavras, instale: `pip install wordcloud`"
-                )
+            st.info("Não há dados suficientes para gerar a análise de palavras")
 
 
 def render_timeline_chart(df_filtered, charts):

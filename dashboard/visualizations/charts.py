@@ -85,10 +85,7 @@ def create_sentiment_pie_chart(df):
 
 
 def create_wordcloud(df):
-    """Cria nuvem de palavras ou retorna None se WordCloud não estiver disponível"""
-    if not WORDCLOUD_AVAILABLE:
-        return None
-
+    """Cria nuvem de palavras ou gráfico alternativo de termos frequentes"""
     if df.empty:
         return None
 
@@ -101,18 +98,70 @@ def create_wordcloud(df):
     if not clean_text.strip():
         return None
 
-    # Cria a word cloud
-    wordcloud = WordCloud(**WORDCLOUD_CONFIG).generate(clean_text)
+    if WORDCLOUD_AVAILABLE:
+        # Versão com WordCloud (instalação local)
+        wordcloud = WordCloud(**WORDCLOUD_CONFIG).generate(clean_text)
+        fig, ax = plt.subplots(figsize=(10, 5))
+        ax.imshow(wordcloud, interpolation="bilinear")
+        ax.axis("off")
+        ax.set_title("Nuvem de Palavras", fontsize=16, pad=20)
+        return fig
+    else:
+        # Versão alternativa sem WordCloud (ambiente online)
+        return create_word_frequency_chart(clean_text)
 
-    # Cria o plot
-    fig, ax = plt.subplots(figsize=(10, 5))
-    ax.imshow(wordcloud, interpolation="bilinear")
-    ax.axis("off")
-    ax.set_title("Termos Mais Frequentes", fontsize=16, pad=20)
 
+def create_word_frequency_chart(text):
+    """Cria gráfico de barras com palavras mais frequentes"""
+    from collections import Counter
+    import re
+    
+    # Separa palavras e conta frequência
+    words = re.findall(r'\b\w+\b', text.lower())
+    
+    # Remove palavras muito pequenas
+    words = [word for word in words if len(word) > 3]
+    
+    # Conta frequência
+    word_freq = Counter(words)
+    
+    # Pega as 15 palavras mais comuns
+    top_words = word_freq.most_common(15)
+    
+    if not top_words:
+        return None
+    
+    # Cria o gráfico
+    fig, ax = plt.subplots(figsize=(10, 6))
+    
+    words_list = [item[0] for item in top_words]
+    counts_list = [item[1] for item in top_words]
+    
+    # Cores gradientes
+    colors = plt.cm.viridis([i/len(words_list) for i in range(len(words_list))])
+    
+    bars = ax.barh(range(len(words_list)), counts_list, color=colors)
+    
+    # Configurações do gráfico
+    ax.set_yticks(range(len(words_list)))
+    ax.set_yticklabels(words_list)
+    ax.set_xlabel('Frequência')
+    ax.set_title('Termos Mais Frequentes nas Notícias', fontsize=14, pad=20)
+    
+    # Inverte eixo Y para mostrar maior frequência no topo
+    ax.invert_yaxis()
+    
+    # Adiciona valores nas barras
+    for i, (bar, count) in enumerate(zip(bars, counts_list)):
+        ax.text(bar.get_width() + 0.1, bar.get_y() + bar.get_height()/2, 
+                str(count), ha='left', va='center', fontsize=10)
+    
+    # Remove spines desnecessárias
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    
+    plt.tight_layout()
     return fig
-
-
 def create_term_distribution_chart(df):
     """Cria gráfico de barras da distribuição por termo de busca"""
     if df.empty:
