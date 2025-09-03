@@ -1,5 +1,10 @@
 # 🧠 Monitor de Percepção Pública sobre IA no Piauí
 
+[![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.28+-red.svg)](https://streamlit.io/)
+[![License](https://img.shields.io/badge/License-Educational-green.svg)](https://github.com/mvaldecy/teste-sia)
+[![GitHub](https://img.shields.io/badge/GitHub-teste--sia-black.svg)](https://github.com/mvaldecy/teste-sia)
+
 Sistema de monitoramento e análise de sentimento de notícias sobre Inteligência Artificial no estado do Piauí, desenvolvido para a Secretaria de Inteligência Artificial.
 
 ## 📋 Visão Geral
@@ -16,6 +21,14 @@ O projeto coleta automaticamente notícias relacionadas à IA no Piauí através
 
 ## 🚀 Início Rápido
 
+### ⚡ Execução em Uma Linha
+
+```bash
+git clone https://github.com/mvaldecy/teste-sia.git && cd teste-sia && ./start.sh
+```
+
+> 🎯 **Este comando faz tudo**: clona o repositório, configura o ambiente e inicia o dashboard!
+
 ### Pré-requisitos
 
 - **Python 3.10+** ([Download aqui](https://www.python.org/downloads/))
@@ -28,7 +41,7 @@ O projeto coleta automaticamente notícias relacionadas à IA no Piauí através
 
 ```bash
 # Clone o repositório
-git clone [URL_DO_REPOSITORIO]
+git clone https://github.com/mvaldecy/teste-sia.git
 cd teste-sia
 
 # Execute o script automático (faz tudo automaticamente)
@@ -48,7 +61,7 @@ cd teste-sia
 1. **Clone e acesse o repositório**
 
 ```bash
-git clone [URL_DO_REPOSITORIO]
+git clone https://github.com/mvaldecy/teste-sia.git
 cd teste-sia
 ```
 
@@ -325,7 +338,8 @@ Desenvolvido para a Secretaria de Inteligência Artificial do Piauí como parte 
 
 **Autor**: Marcos Valdecy Macedo Costa Leite  
 **Período**: Setembro 2025  
-**Versão**: 1.0.0
+**Versão**: 1.0.0  
+**Repositório**: [https://github.com/mvaldecy/teste-sia](https://github.com/mvaldecy/teste-sia)
 
 ## 📄 Documentação Adicional
 
