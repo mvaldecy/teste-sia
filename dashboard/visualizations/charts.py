@@ -10,14 +10,6 @@ import sys
 import os
 from datetime import datetime, timedelta
 
-# Importação opcional do WordCloud
-try:
-    from wordcloud import WordCloud
-
-    WORDCLOUD_AVAILABLE = True
-except ImportError:
-    WORDCLOUD_AVAILABLE = False
-
 # Adiciona path para importações
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 
@@ -25,16 +17,6 @@ from utils.text_processing import clean_text_pipeline
 
 # Configurações locais
 COLORS = {"positivo": "#27AE60", "negativo": "#E74C3C", "neutro": "#95A5A6"}
-
-WORDCLOUD_CONFIG = {
-    "width": 800,
-    "height": 400,
-    "background_color": "white",
-    "colormap": "viridis",
-    "max_words": 50,
-    "relative_scaling": 0.5,
-    "min_font_size": 10,
-}
 
 
 def validate_dates_local(df, date_column="data_publicacao"):
@@ -85,7 +67,7 @@ def create_sentiment_pie_chart(df):
 
 
 def create_wordcloud(df):
-    """Cria nuvem de palavras ou gráfico alternativo de termos frequentes"""
+    """Cria gráfico de frequência de palavras (consistente em todos os ambientes)"""
     if df.empty:
         return None
 
@@ -98,17 +80,8 @@ def create_wordcloud(df):
     if not clean_text.strip():
         return None
 
-    if WORDCLOUD_AVAILABLE:
-        # Versão com WordCloud (instalação local)
-        wordcloud = WordCloud(**WORDCLOUD_CONFIG).generate(clean_text)
-        fig, ax = plt.subplots(figsize=(10, 5))
-        ax.imshow(wordcloud, interpolation="bilinear")
-        ax.axis("off")
-        ax.set_title("Nuvem de Palavras", fontsize=16, pad=20)
-        return fig
-    else:
-        # Versão alternativa sem WordCloud (ambiente online)
-        return create_word_frequency_chart(clean_text)
+    # Sempre usa o gráfico de barras para consistência
+    return create_word_frequency_chart(clean_text)
 
 
 def create_word_frequency_chart(text):

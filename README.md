@@ -95,14 +95,14 @@ source .venv/bin/activate  # Linux/Mac
 3. **Instale as dependências**
 
 ```bash
-# Instalação básica (compatível com Streamlit Cloud)
+# Instalação básica (recomendada)
 pip install -r requirements.txt
 
-# OU instalação completa com WordCloud (apenas para desenvolvimento local)
+# OU instalação completa para desenvolvimento local (inclui dependências extras)
 pip install -r requirements-full.txt
 ```
 
-> 💡 **Nota**: O `requirements.txt` não inclui o WordCloud para garantir compatibilidade com o Streamlit Cloud. Para desenvolvimento local com todas as funcionalidades, use `requirements-full.txt`.
+> 💡 **Nota**: O `requirements.txt` contém apenas as dependências essenciais para máxima compatibilidade. Para desenvolvimento local, use `requirements-full.txt` se preferir todas as bibliotecas.
 
 4. **Colete dados iniciais (opcional)**
 
@@ -292,7 +292,7 @@ O dashboard apresenta:
 
 - Métricas resumidas (total, positivas, negativas, neutras)
 - Gráfico de distribuição de sentimentos
-- Nuvem de palavras dos termos mais frequentes
+- Análise de frequência das palavras mais comuns
 - Evolução temporal dos sentimentos
 - Tabela interativa com filtros avançados
 
@@ -317,7 +317,7 @@ O dashboard apresenta:
 - **Streamlit**: Framework para dashboard web
 - **Pandas**: Manipulação de dados
 - **Plotly**: Visualizações interativas
-- **WordCloud**: Geração de nuvem de palavras
+- **Matplotlib**: Gráficos e visualizações
 - **Requests**: Requisições HTTP
 - **XML Parser**: Processamento de RSS
 
@@ -364,18 +364,16 @@ O uso de IA foi estratégico para acelerar o desenvolvimento de componentes não
 
 - **Plataforma**: Streamlit Cloud
 - **Python**: 3.11 (otimizado para compatibilidade)
-- **Dependencies**: Configuração otimizada sem WordCloud para máxima compatibilidade
+- **Dependencies**: Configuração otimizada para máxima compatibilidade
 - **Disponibilidade**: 24/7 com auto-restart
 - **Performance**: Cache inteligente e otimizações de carregamento
 
 ### Configurações Especiais:
 
 - `runtime.txt`: Especifica Python 3.11 para estabilidade
-- `requirements.txt`: Versão otimizada para cloud (sem dependências problemáticas)
+- `requirements.txt`: Versão otimizada para cloud com dependências essenciais  
 - `.streamlit/config.toml`: Configurações personalizadas de tema e performance
-- WordCloud opcional: Interface adaptativa que funciona com ou sem a biblioteca
-
-## 👥 Desenvolvimento
+- Interface consistente: Gráfico de frequência de palavras funciona igualmente em todos os ambientes## 👥 Desenvolvimento
 
 Desenvolvido para a Secretaria de Inteligência Artificial do Piauí como parte do processo seletivo.
 

@@ -53,7 +53,7 @@ def render_main_visualizations(df_filtered, charts):
             st.plotly_chart(pie_chart, use_container_width=True)
 
     with col2:
-        st.subheader("☁️ Palavras Mais Frequentes")
+        st.subheader("📊 Palavras Mais Frequentes")
         wordcloud_fig = charts.create_wordcloud(df_filtered)
         if wordcloud_fig:
             st.pyplot(wordcloud_fig)
