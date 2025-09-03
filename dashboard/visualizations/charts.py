@@ -4,12 +4,19 @@ Funções para criar visualizações do dashboard
 
 import plotly.express as px
 import plotly.graph_objects as go
-from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 import pandas as pd
 import sys
 import os
 from datetime import datetime, timedelta
+
+# Importação opcional do WordCloud
+try:
+    from wordcloud import WordCloud
+
+    WORDCLOUD_AVAILABLE = True
+except ImportError:
+    WORDCLOUD_AVAILABLE = False
 
 # Adiciona path para importações
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
@@ -78,7 +85,10 @@ def create_sentiment_pie_chart(df):
 
 
 def create_wordcloud(df):
-    """Cria nuvem de palavras"""
+    """Cria nuvem de palavras ou retorna None se WordCloud não estiver disponível"""
+    if not WORDCLOUD_AVAILABLE:
+        return None
+
     if df.empty:
         return None
 

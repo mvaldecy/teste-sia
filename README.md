@@ -80,8 +80,14 @@ source .venv/bin/activate  # Linux/Mac
 3. **Instale as dependências**
 
 ```bash
+# Instalação básica (compatível com Streamlit Cloud)
 pip install -r requirements.txt
+
+# OU instalação completa com WordCloud (apenas para desenvolvimento local)
+pip install -r requirements-full.txt
 ```
+
+> 💡 **Nota**: O `requirements.txt` não inclui o WordCloud para garantir compatibilidade com o Streamlit Cloud. Para desenvolvimento local com todas as funcionalidades, use `requirements-full.txt`.
 
 4. **Colete dados iniciais (opcional)**
 

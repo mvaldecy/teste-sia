@@ -1,3 +1,4 @@
+# Versão alternativa sem wordcloud para deploy no Streamlit Cloud
 streamlit>=1.35.0
 pandas>=2.1.0
 requests>=2.31.0

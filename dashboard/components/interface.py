@@ -58,7 +58,16 @@ def render_main_visualizations(df_filtered, charts):
         if wordcloud_fig:
             st.pyplot(wordcloud_fig)
         else:
-            st.info("Não há dados suficientes para gerar a nuvem de palavras")
+            # Verifica se WordCloud está disponível
+            try:
+                from wordcloud import WordCloud
+
+                st.info("Não há dados suficientes para gerar a nuvem de palavras")
+            except ImportError:
+                st.warning("📦 WordCloud não está disponível nesta instalação")
+                st.info(
+                    "Para ver a nuvem de palavras, instale: `pip install wordcloud`"
+                )
 
 
 def render_timeline_chart(df_filtered, charts):

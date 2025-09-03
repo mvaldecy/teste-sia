@@ -19,14 +19,27 @@ __author__ = "Marcos Valdecy Macedo Costa Leite"
 
 # Importações principais para facilitar o uso
 from .config import PAGE_CONFIG, CUSTOM_CSS, COLORS
-from .data_utils import load_data, apply_filters
-from .sentiment import analyze_sentiments
+
+# Importações condicionais (apenas quando streamlit está disponível)
+try:
+    from .data_utils import load_data, apply_filters
+    from .sentiment import analyze_sentiments
+
+    DATA_UTILS_AVAILABLE = True
+except ImportError:
+    DATA_UTILS_AVAILABLE = False
 
 __all__ = [
     "PAGE_CONFIG",
     "CUSTOM_CSS",
     "COLORS",
-    "load_data",
-    "apply_filters",
-    "analyze_sentiments",
 ]
+
+if DATA_UTILS_AVAILABLE:
+    __all__.extend(
+        [
+            "load_data",
+            "apply_filters",
+            "analyze_sentiments",
+        ]
+    )
